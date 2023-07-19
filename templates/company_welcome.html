@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Company Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(242, 242, 242, 0.9);
+            background-image: url("/static/back3.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            background-color: #031259;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+            animation-name: slideIn;
+            animation-duration: 2s;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+            padding: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            border-radius: 30px;
+            background: linear-gradient(to right, #f7b733, #fc4a1a);
+            color: #fff;
+            font-size: 2em;
+            text-align: center;
+            text-decoration: none;
+            animation-name: fadeIn;
+            animation-duration: 2s;
+        }
+
+        .button:hover {
+            background-color: #666;
+        }
+
+        footer {
+            background-color: #031259;
+            color: green;
+            padding: 20px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .chat-button {
+            background-color: green;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-button:hover {
+            background-color: #33cc33;
+        }
+
+        .chat-icon {
+            margin-right: 5px;
+        }
+
+        /* Chat Popup Styling */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            max-width: 90%;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-popup.show {
+            display: block;
+        }
+
+        .chat-bar {
+            margin-top: 20px;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .chat-submit {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: green;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chat-submit:hover {
+            background-color: lightseagreen;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .language-dropdown select {
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .language-dropdown {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Company Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a class="menu" href="/" style="color: white;">Home</a></li>
+                <li><a class="menu" href="/services" style="color: white;">Services</a></li>
+                <li><a class="menu" href="/aboutus" style="color: white;">About Us</a></li>
+                <li><a class="menu" href="/contact" style="color: white;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="google_translate_element" class="goog-te-gadget"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <main>
+        <p id="welcomeText">Welcome to Company Dashboard</p>
+        <p id="interviewText">Click below to start the interview</p>
+        <div>
+            <a href="/hrchat" class="button" id="conductInterviewBtn">Conduct Interview</a>
+        </div>
+        <div class="language-dropdown">
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+    </main>
+    <footer>
+        <a href="#" class="chat-button" id="chatButton">
+            <span class="chat-icon">Chat Us</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M21 10a9 9 0 0 0-18 0v2a9 9 0 0 0 9 9h2a9 9 0 0 0 9-9v-2zm-9 2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
+            </svg>
+        </a>
+    </footer>
+    <!-- Chat Popup HTML -->
+    <div class="chat-popup" id="chatPopup">
+        <h3>Welcome to the Chat!</h3>
+        <p>Start chatting with us.</p>
+        <div class="chat-bar">
+            <textarea class="chat-input" placeholder="Type your message..."></textarea>
+            <button class="chat-submit" id="sendBtnText">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatButton = document.getElementById("chatButton");
+        const chatPopup = document.getElementById("chatPopup");
+        const languageSelect = document.getElementById("languageSelect");
+
+        chatButton.addEventListener("click", function () {
+            chatPopup.classList.toggle("show");
+        });
+
+        languageSelect.addEventListener("change", function () {
+            const selectedLanguage = languageSelect.value;
+            changeLanguage(selectedLanguage);
+        });
+
+        function changeLanguage(selectedLanguage) {
+            const translations = {
+                en: {
+                    welcome: "Welcome to Company Dashboard",
+                    interview: "Click below to start the interview",
+                    conductInterview: "Conduct Interview",
+                    chatUs: "Chat Us",
+                    sendButton: "Send"
+                },
+                fr: {
+                    welcome: "Bienvenue sur le tableau de bord de l'entreprise",
+                    interview: "Cliquez ci-dessous pour commencer l'entretien",
+                    conductInterview: "Conduire un entretien",
+                    chatUs: "Discutez avec nous",
+                    sendButton: "Envoyer"
+                },
+                es: {
+                    welcome: "Bienvenido al Panel de Control de la Empresa",
+                    interview: "Haga clic a continuación para iniciar la entrevista",
+                    conductInterview: "Conducir entrevista",
+                    chatUs: "Chatea con nosotros",
+                    sendButton: "Enviar"
+                }
+            };
+
+            const translatedText = translations[selectedLanguage];
+
+            document.getElementById("welcomeText").textContent = translatedText.welcome;
+            document.getElementById("interviewText").textContent = translatedText.interview;
+            document.getElementById("conductInterviewBtn").textContent = translatedText.conductInterview;
+            document.getElementById("chatUsText").textContent = translatedText.chatUs;
+            document.getElementById("sendBtnText").textContent = translatedText.sendButton;
+        }
+    </script>
+</body>
+
+</html>
